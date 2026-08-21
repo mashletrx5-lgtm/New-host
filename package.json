@@ -1,0 +1,18 @@
+{
+  "name": "blox-fruits-stock-bot",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "pnpm --filter @workspace/api-server run start",
+    "start:bot": "pnpm --filter @workspace/api-server run start",
+    "build:server": "pnpm --filter @workspace/api-server run build",
+    "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "typecheck:libs": "tsc --build",
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
+  },
+  "private": true,
+  "devDependencies": {
+    "prettier": "^3.9.5",
+    "typescript": "~5.9.3"
+  }
+}
